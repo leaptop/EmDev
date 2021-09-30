@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 
-public class Class_0 {
+public class WorkWithTXT {
     static String showANumberOfEachLetter(String str) {
         char[] car = str.toCharArray();
         ArrayList<Character> cararr = new ArrayList<Character>();

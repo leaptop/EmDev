@@ -6,7 +6,7 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
-public class Watcher {
+public class Watcher {//watchin in the folder IN. If a new txt files appear, then call methods from WorkWithTXT class to process and write to the out folder
     public static String getAstringFromTXT(String fileName) throws IOException {
         // String fileName = "C:\\Users\\stepa\\EmDev\\Task1_00\\src\\input.txt";
         // String fileName = "IN/input.txt";
@@ -14,7 +14,7 @@ public class Watcher {
     }
 
     public static void main(String[] args) throws Exception {
-        Class_0.writeTextToFile(Class_0.showANumberOfEachLetter(Class_0.getAstringFromTXT()));
+        WorkWithTXT.writeTextToFile(WorkWithTXT.showANumberOfEachLetter(WorkWithTXT.getAstringFromTXT()));
 
         Path dirPath = Paths.get("IN");
 
@@ -39,8 +39,8 @@ public class Watcher {
                     System.out.println("New file '" + filePath + "! was discovered");
                     String str = Files.readString(Paths.get("IN\\" + String.valueOf(filePath)));
                     // Class_0.writeTextToFile(Class_0.showANumberOfEachLetter(str));
-                    Files.writeString(Paths.get("out\\" + "processed_" + filePath + ".txt"), Class_0.showANumberOfEachLetter(str) +
-                            "\n" + Class_0.showAnumberOfWordsInText(str));
+                    Files.writeString(Paths.get("out\\" + "processed_" + filePath + ".txt"), WorkWithTXT.showANumberOfEachLetter(str) +
+                            "\n" + WorkWithTXT.showAnumberOfWordsInText(str));
                     long timed = System.currentTimeMillis();
 
                     try {
